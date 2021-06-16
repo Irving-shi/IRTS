@@ -1,0 +1,11 @@
+ir\irving\com\mapper\CorpusMapper.class
+ir\irving\com\bean\Corpus.class
+ir\irving\com\model\ProblemParam.class
+ir\irving\com\config\Swagger2Config.class
+ir\irving\com\common\api\ResultCode.class
+ir\irving\com\common\api\CommonPage.class
+ir\irving\com\common\api\IErrorCode.class
+ir\irving\com\ApplicationRunning.class
+ir\irving\com\model\Blurry.class
+ir\irving\com\common\api\CommonResult.class
+ir\irving\com\controller\DemoController.class
