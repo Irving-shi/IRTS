@@ -1,4 +1,4 @@
-package ir.irving.com.bean;
+package com.irving.ir.bean;
 
 import java.sql.DatabaseMetaData;
 import java.util.Date;

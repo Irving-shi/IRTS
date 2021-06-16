@@ -1,8 +1,7 @@
-package ir.irving.com.mapper;
+package com.irving.ir.mapper;
 
-import ir.irving.com.bean.Corpus;
+import com.irving.ir.bean.Corpus;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

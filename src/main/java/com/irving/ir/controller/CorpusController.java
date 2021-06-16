@@ -1,17 +1,17 @@
-package ir.irving.com.controller;
+package com.irving.ir.controller;
 
 /**
  * @author irving
  * @date 2021/6/10
  */
 
+import com.irving.ir.model.ProblemParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import ir.irving.com.bean.Corpus;
-import ir.irving.com.common.api.CommonResult;
-import ir.irving.com.mapper.CorpusMapper;
-import ir.irving.com.model.Blurry;
-import ir.irving.com.model.ProblemParam;
+import com.irving.ir.bean.Corpus;
+import com.irving.ir.common.api.CommonResult;
+import com.irving.ir.mapper.CorpusMapper;
+import com.irving.ir.model.Blurry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

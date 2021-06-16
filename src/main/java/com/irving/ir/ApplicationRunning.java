@@ -1,4 +1,4 @@
-package ir.irving.com;
+package com.irving.ir;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

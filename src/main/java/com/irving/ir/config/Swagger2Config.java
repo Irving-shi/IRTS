@@ -1,4 +1,4 @@
-package ir.irving.com.config;
+package com.irving.ir.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

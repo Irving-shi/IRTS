@@ -1,4 +1,4 @@
-package ir.irving.com.model;
+package com.irving.ir.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotEmpty;
