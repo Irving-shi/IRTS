@@ -6,6 +6,7 @@ package com.irving.ir.controller;
  */
 
 import com.irving.ir.model.ProblemParam;
+import com.irving.ir.service.CorpusService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import com.irving.ir.bean.Corpus;
@@ -18,16 +19,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/corpus")
-@Api(tags = "DemoController", description = "问题管理")
+@Api(tags = "CorpusController", description = "问题管理")
 public class CorpusController {
 
     @Autowired
-    CorpusMapper corpusMapper;
+    private CorpusService corpusService;
+
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CorpusController.class);
 
@@ -35,7 +36,7 @@ public class CorpusController {
     @RequestMapping(value = "/problem", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult getAnswerByProblem(@RequestBody ProblemParam problemParam, BindingResult result) {
-      Corpus corpus =corpusMapper.getAnswerByProblem(problemParam.getProblem());
+      Corpus corpus =corpusService.getAnswerByProblem(problemParam.getProblem());
         if(null!=corpus){
             return CommonResult.success(corpus,"获取答案成功");
         }else {
@@ -50,7 +51,7 @@ public class CorpusController {
     @RequestMapping(value = "/keyword", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult getAnswerByBlurry(@RequestBody Blurry blurry, BindingResult result) {
-        List<Corpus> corpusList =corpusMapper.getAnswerByBlurry(blurry.getKeyword());
+        List<Corpus> corpusList =corpusService.getAnswerByBlurry(blurry.getKeyword());
 
         if(null!=corpusList){
             return CommonResult.success(corpusList,"匹配上已知问题");
@@ -69,8 +70,7 @@ public class CorpusController {
     public CommonResult createQuestion(@RequestBody Corpus corpus) {
         CommonResult commonResult;
 
-        corpus.setCreateTime(new Date());
-        int count = corpusMapper.createQuestion(corpus);
+        int count = corpusService.createQuestion(corpus);
 
         if (count==1){
             commonResult=CommonResult.success(corpus,"写入问题答案成功");

@@ -3,6 +3,7 @@ package com.irving.ir.mapper;
 import com.irving.ir.bean.Corpus;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -24,4 +25,9 @@ public interface CorpusMapper {
 
     @Insert("insert into corpus ( problem, answer) values(#{problem},#{answer})")
     int createQuestion(Corpus corpus);
+
+
+    @Update("UPDATE corpus SET counts=#{counts} WHERE id=#{id}")
+    int updateByCounts(int counts,int id);
+
 }
