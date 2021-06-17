@@ -25,13 +25,17 @@ public class CorpusServiceImpl implements CorpusService {
     private static final Logger LOGGER = LoggerFactory.getLogger(CorpusServiceImpl.class);
 
     @Override
+    public Corpus getAnswerById(int id) {
+        return corpusMapper.getAnswerById(id);
+    }
+
+    @Override
     public Corpus getAnswerByProblem(String problem) {
         Corpus corpus =corpusMapper.getAnswerByProblem(problem);
         int result = updateByCounts(corpus.getCounts()+1,corpus.getId());
         if(result!=1){
             LOGGER.error("更新查询次数失败");
         }
-
         return corpus;
     }
 
@@ -49,7 +53,16 @@ public class CorpusServiceImpl implements CorpusService {
 
     @Override
     public int updateByCounts(int counts,int id) {
-
         return corpusMapper.updateByCounts(counts,id);
+    }
+
+    @Override
+    public int updateLikeById(int praise, int id) {
+        return corpusMapper.updateLikeById(praise,id);
+    }
+
+    @Override
+    public int updateDislikeById(int dislike, int id) {
+        return corpusMapper.updateDislikeById(dislike,id);
     }
 }

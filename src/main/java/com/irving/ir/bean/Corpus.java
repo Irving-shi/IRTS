@@ -21,7 +21,7 @@ public class Corpus {
      */
 
     private Integer id;
-    private Integer like;
+    private Integer praise;
     private Integer dislike;
     private Integer counts;
 
@@ -46,12 +46,12 @@ public class Corpus {
         this.id = id;
     }
 
-    public Integer getLike() {
-        return like;
+    public Integer getPraise() {
+        return praise;
     }
 
-    public void setLike(Integer like) {
-        this.like = like;
+    public void setPraise(Integer praise) {
+        this.praise = praise;
     }
 
     public Integer getDislike() {

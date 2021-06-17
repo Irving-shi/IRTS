@@ -83,4 +83,43 @@ public class CorpusController {
 
     }
 
+    @ApiOperation("点赞")
+    @RequestMapping(value = "/like", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult addLike(@RequestBody Corpus corpus) {
+        CommonResult commonResult;
+
+        int count=corpusService.updateLikeById(corpus.getPraise()+1,corpus.getId());
+        if (count==1){
+            commonResult=CommonResult.success(corpus,"点赞成功");
+            LOGGER.debug("addLike success:{}",corpus);
+        }else {
+            commonResult=CommonResult.failed("点赞失败");
+            LOGGER.error("addLike failed:{}", corpus);
+        }
+
+        return commonResult;
+
+    }
+
+    @ApiOperation("负向点赞")
+    @RequestMapping(value = "/dislike", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult addDislike(@RequestBody Corpus corpus) {
+        CommonResult commonResult;
+
+        int count=corpusService.updateDislikeById(corpus.getDislike()+1,corpus.getId());
+        if (count==1){
+            commonResult=CommonResult.success(corpus,"点赞成功");
+            LOGGER.debug("addLike success:{}",corpus);
+        }else {
+            commonResult=CommonResult.failed("点赞失败");
+            LOGGER.error("addLike failed:{}", corpus);
+        }
+
+        return commonResult;
+
+    }
+
+
 }

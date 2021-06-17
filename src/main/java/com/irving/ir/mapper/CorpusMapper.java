@@ -15,6 +15,10 @@ import java.util.List;
 
 public interface CorpusMapper {
 
+    @Select("select * from corpus where id=#{id}")
+    Corpus getAnswerById(int id);
+
+
     @Select("select * from corpus where problem=#{problem}")
     Corpus getAnswerByProblem(String problem);
 
@@ -29,5 +33,11 @@ public interface CorpusMapper {
 
     @Update("UPDATE corpus SET counts=#{counts} WHERE id=#{id}")
     int updateByCounts(int counts,int id);
+
+    @Update("UPDATE corpus SET praise=#{praise} WHERE id=#{id}")
+    int updateLikeById(int praise,int id);
+
+    @Update("UPDATE corpus SET dislike=#{dislike} WHERE id=#{id}")
+    int updateDislikeById(int dislike,int id);
 
 }
