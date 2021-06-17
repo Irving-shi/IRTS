@@ -1,5 +1,6 @@
 package com.irving.ir.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.irving.ir.bean.Corpus;
 import com.irving.ir.controller.CorpusController;
 import com.irving.ir.mapper.CorpusMapper;
@@ -27,6 +28,13 @@ public class CorpusServiceImpl implements CorpusService {
     @Override
     public Corpus getAnswerById(int id) {
         return corpusMapper.getAnswerById(id);
+    }
+
+    @Override
+    public List<Corpus> queryAllCorpus(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+
+        return corpusMapper.queryAllCorpus();
     }
 
     @Override

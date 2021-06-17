@@ -15,6 +15,10 @@ import java.util.List;
 
 public interface CorpusMapper {
 
+    @Select("select * from corpus")
+    List<Corpus> queryAllCorpus();
+
+
     @Select("select * from corpus where id=#{id}")
     Corpus getAnswerById(int id);
 

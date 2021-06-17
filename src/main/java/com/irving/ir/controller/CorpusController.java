@@ -5,6 +5,7 @@ package com.irving.ir.controller;
  * @date 2021/6/10
  */
 
+import com.irving.ir.common.api.CommonPage;
 import com.irving.ir.model.ProblemParam;
 import com.irving.ir.service.CorpusService;
 import io.swagger.annotations.Api;
@@ -46,6 +47,17 @@ public class CorpusController {
 
     }
 
+    @ApiOperation("分页显示所有问题")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<Corpus>> listCorpus(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+
+        List<Corpus> corpusList =corpusService.queryAllCorpus(pageNum,pageSize);
+
+        return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
+
+    }
 
     @ApiOperation("根据关键字模糊查询")
     @RequestMapping(value = "/keyword", method = RequestMethod.POST)
