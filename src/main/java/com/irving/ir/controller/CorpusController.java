@@ -12,7 +12,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import com.irving.ir.bean.Corpus;
 import com.irving.ir.common.api.CommonResult;
-import com.irving.ir.mapper.CorpusMapper;
 import com.irving.ir.model.Blurry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

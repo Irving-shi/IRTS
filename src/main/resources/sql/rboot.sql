@@ -26,6 +26,16 @@ INSERT INTO corpus ( problem, answer)
                        VALUES
                        ( "你喜欢喝什么", "我喜欢喝豆浆");
 
+# name phone email  school question
 
-
+CREATE TABLE IF NOT EXISTS `board`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(50) NOT NULL,
+   `phone` VARCHAR(20) NOT NULL,
+   `email` VARCHAR(20) NOT NULL,
+   `school` VARCHAR(50) NOT NULL ,
+   `question` VARCHAR(100) NOT NULL ,
+   `createTime` TIMESTAMP,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
