@@ -47,7 +47,7 @@ public class CorpusController {
 
     }
 
-    @ApiOperation("分页显示所有问题")
+    @ApiOperation("分页显示所有问题并按访问次数进行降序")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<Corpus>> listCorpus(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,

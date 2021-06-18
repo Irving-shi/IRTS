@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface CorpusMapper {
 
-    @Select("select * from corpus")
+    @Select("select * from corpus order by counts desc")
     List<Corpus> queryAllCorpus();
 
 

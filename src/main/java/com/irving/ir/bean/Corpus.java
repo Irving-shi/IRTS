@@ -14,7 +14,7 @@ public class Corpus {
      `id` INT UNSIGNED AUTO_INCREMENT,
    `problem` VARCHAR(100) NOT NULL,
    `answer` TEXT NOT NULL,
-   `like` INT DEFAULT '0',
+   `praise` INT DEFAULT '0',
    `dislike` INT DEFAULT '0',
    `counts` INT DEFAULT '0',
 
