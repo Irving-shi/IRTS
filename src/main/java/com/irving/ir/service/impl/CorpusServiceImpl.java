@@ -38,6 +38,18 @@ public class CorpusServiceImpl implements CorpusService {
     }
 
     @Override
+    public List<Corpus> queryAllCorpusByDislike(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        return corpusMapper.queryAllCorpusByDislike();
+    }
+
+    @Override
+    public List<Corpus> queryAllCorpusByPraise(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        return corpusMapper.queryAllCorpusByPraise();
+    }
+
+    @Override
     public Corpus getAnswerByProblem(String problem) {
         Corpus corpus =corpusMapper.getAnswerByProblem(problem);
         int result = updateByCounts(corpus.getCounts()+1,corpus.getId());

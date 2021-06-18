@@ -48,7 +48,7 @@ public class CorpusController {
     }
 
     @ApiOperation("分页显示所有问题并按访问次数进行降序")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list/all", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<Corpus>> listCorpus(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                        @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
@@ -58,6 +58,30 @@ public class CorpusController {
         return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
 
     }
+
+    @ApiOperation("分页显示所有问题并按反向点赞次数进行降序")
+    @RequestMapping(value = "/list/dislike", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<Corpus>> listCorpusByDislike(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+
+        List<Corpus> corpusList =corpusService.queryAllCorpusByDislike(pageNum,pageSize);
+
+        return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
+
+    }
+    @ApiOperation("分页显示所有问题并按访问点赞次数进行降序")
+    @RequestMapping(value = "/list/like", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<Corpus>> listCorpusByParsise(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+
+        List<Corpus> corpusList =corpusService.queryAllCorpusByPraise(pageNum,pageSize);
+
+        return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
+
+    }
+
 
     @ApiOperation("根据关键字模糊查询")
     @RequestMapping(value = "/keyword", method = RequestMethod.POST)

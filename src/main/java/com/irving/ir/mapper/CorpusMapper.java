@@ -18,6 +18,13 @@ public interface CorpusMapper {
     @Select("select * from corpus order by counts desc")
     List<Corpus> queryAllCorpus();
 
+    @Select("select * from corpus order by dislike desc")
+    List<Corpus> queryAllCorpusByDislike();
+
+
+    @Select("select * from corpus order by praise desc")
+    List<Corpus> queryAllCorpusByPraise();
+
 
     @Select("select * from corpus where id=#{id}")
     Corpus getAnswerById(int id);

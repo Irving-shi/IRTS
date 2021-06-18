@@ -13,6 +13,10 @@ public interface CorpusService {
 
     List<Corpus> queryAllCorpus(int pageNum, int pageSize);
 
+    List<Corpus> queryAllCorpusByDislike(int pageNum, int pageSize);
+
+    List<Corpus> queryAllCorpusByPraise(int pageNum, int pageSize);
+
     Corpus getAnswerByProblem(String problem);
 
     List<Corpus> getAnswerByBlurry(String keyword);
