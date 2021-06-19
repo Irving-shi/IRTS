@@ -1,4 +1,4 @@
-package com.irving.ir.controller;
+package com.irving.ir.controller.pub;
 
 /**
  * @author irving

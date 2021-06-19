@@ -8,8 +8,8 @@ public enum ResultCode implements IErrorCode {
     SUCCESS(200, "操作成功",true),
     FAILED(500, "操作失败",false),
     VALIDATE_FAILED(404, "参数检验失败",false),
-    UNAUTHORIZED(401, "暂未登录或token已经过期",false),
-    FORBIDDEN(403, "没有相关权限",false);
+    UNAUTHORIZED(401, "暂未登录或token不存在",false),
+    FORBIDDEN(403, "token已经过期或无效",false);
     private long code;
     private String msg;
     private  boolean success;

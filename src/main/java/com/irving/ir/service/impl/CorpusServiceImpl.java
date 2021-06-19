@@ -2,7 +2,6 @@ package com.irving.ir.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.irving.ir.bean.Corpus;
-import com.irving.ir.controller.CorpusController;
 import com.irving.ir.mapper.CorpusMapper;
 import com.irving.ir.service.CorpusService;
 import org.slf4j.Logger;

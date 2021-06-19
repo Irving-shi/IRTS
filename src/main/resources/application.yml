@@ -11,3 +11,8 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+token:
+  jwt:
+    secret: f4e2e52034348f86b67cde581c0f9eb5[www.renren.io]
+    expire: 604800
+    header: token
