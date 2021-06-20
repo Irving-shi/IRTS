@@ -1,5 +1,7 @@
 package com.irving.ir.bean;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 /**

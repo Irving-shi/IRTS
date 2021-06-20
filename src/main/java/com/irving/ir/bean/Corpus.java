@@ -1,5 +1,7 @@
 package com.irving.ir.bean;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.sql.DatabaseMetaData;
 import java.util.Date;
 
@@ -19,7 +21,6 @@ public class Corpus {
    `counts` INT DEFAULT '0',
 
      */
-
     private Integer id;
     private Integer praise;
     private Integer dislike;
@@ -27,6 +28,7 @@ public class Corpus {
 
     private String problem;
     private String answer;
+
 
     private Date createTime;
 

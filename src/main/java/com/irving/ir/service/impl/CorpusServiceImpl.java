@@ -51,9 +51,11 @@ public class CorpusServiceImpl implements CorpusService {
     @Override
     public Corpus getAnswerByProblem(String problem) {
         Corpus corpus =corpusMapper.getAnswerByProblem(problem);
-        int result = updateByCounts(corpus.getCounts()+1,corpus.getId());
-        if(result!=1){
-            LOGGER.error("更新查询次数失败");
+        if(null!=corpus) {
+            int result = updateByCounts(corpus.getCounts() + 1, corpus.getId());
+            if (result != 1) {
+                LOGGER.error("更新查询次数失败");
+            }
         }
         return corpus;
     }

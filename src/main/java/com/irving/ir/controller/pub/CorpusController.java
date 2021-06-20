@@ -58,29 +58,6 @@ public class CorpusController {
 
     }
 
-    @ApiOperation("分页显示所有问题并按反向点赞次数进行降序")
-    @RequestMapping(value = "/list/dislike", method = RequestMethod.GET)
-    @ResponseBody
-    public CommonResult<CommonPage<Corpus>> listCorpusByDislike(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
-
-        List<Corpus> corpusList =corpusService.queryAllCorpusByDislike(pageNum,pageSize);
-
-        return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
-
-    }
-    @ApiOperation("分页显示所有问题并按访问点赞次数进行降序")
-    @RequestMapping(value = "/list/like", method = RequestMethod.GET)
-    @ResponseBody
-    public CommonResult<CommonPage<Corpus>> listCorpusByParsise(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
-
-        List<Corpus> corpusList =corpusService.queryAllCorpusByPraise(pageNum,pageSize);
-
-        return CommonResult.success(CommonPage.restPage(corpusList),"分页查询成功");
-
-    }
-
 
     @ApiOperation("根据关键字模糊查询")
     @RequestMapping(value = "/keyword", method = RequestMethod.POST)
@@ -88,35 +65,17 @@ public class CorpusController {
     public CommonResult getAnswerByBlurry(@RequestBody Blurry blurry, BindingResult result) {
         List<Corpus> corpusList =corpusService.getAnswerByBlurry(blurry.getKeyword());
 
-        if(null!=corpusList){
+        if(corpusList.size()>0){
             return CommonResult.success(corpusList,"匹配上已知问题");
         }else {
             LOGGER.error("getAnswerByBlurry failed");
-            return CommonResult.failed("匹配不上已知问题");
+            return CommonResult.failed("匹配不上已知问题,如有需要请在留言板上留言");
         }
 
 
     }
 
 
-    @ApiOperation("写问题和答案")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    @ResponseBody
-    public CommonResult createQuestion(@RequestBody Corpus corpus) {
-        CommonResult commonResult;
-
-        int count = corpusService.createQuestion(corpus);
-
-        if (count==1){
-            commonResult=CommonResult.success(corpus,"写入问题答案成功");
-            LOGGER.debug("createQuestion success:{}",corpus);
-        }else {
-            commonResult=CommonResult.failed("操作失败");
-            LOGGER.error("createQuestion failed:{}", corpus);
-        }
-        return  commonResult;
-
-    }
 
     @ApiOperation("点赞")
     @RequestMapping(value = "/like", method = RequestMethod.POST)
